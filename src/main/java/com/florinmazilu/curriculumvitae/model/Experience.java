@@ -4,21 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 public class Experience {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String title;
     private String company;
     private Date start;
     private Date end;
     private boolean isPresent;
     private String description;
+    
+    @OneToMany(mappedBy = "experience")
     private Set<Skill> skills;
 
     public Experience() {
