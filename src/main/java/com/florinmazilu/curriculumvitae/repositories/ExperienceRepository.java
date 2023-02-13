@@ -1,5 +1,7 @@
 package com.florinmazilu.curriculumvitae.repositories;
 
-public class ExperienceRepository {
-    
+import com.florinmazilu.curriculumvitae.model.Experience;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ExperienceRepository extends CrudRepository<Experience, Long> {
 }

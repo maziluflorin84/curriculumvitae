@@ -1,9 +1,10 @@
 package com.florinmazilu.curriculumvitae.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Skill {
@@ -11,6 +12,11 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+
+    @ManyToMany
+    @JoinTable(name = "experience_skill", joinColumns = @JoinColumn(name = "skill_id"),
+            inverseJoinColumns = @JoinColumn(name = "experience_id"))
+    private Set<Experience> experiences = new HashSet<>();
 
     public Skill() {
     }
@@ -33,5 +39,37 @@ public class Skill {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Set<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(Set<Experience> experiences) {
+        this.experiences = experiences;
+    }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", experiences=" + experiences +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Skill skill = (Skill) o;
+
+        return Objects.equals(id, skill.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

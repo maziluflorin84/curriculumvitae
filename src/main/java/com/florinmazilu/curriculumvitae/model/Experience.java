@@ -1,12 +1,10 @@
 package com.florinmazilu.curriculumvitae.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -23,20 +21,19 @@ public class Experience {
     private boolean isPresent;
     private String description;
     
-    @OneToMany(mappedBy = "experience")
-    private Set<Skill> skills;
+    @ManyToMany(mappedBy = "experiences")
+    private Set<Skill> skills = new HashSet<>();
 
     public Experience() {
     }
 
-    public Experience(String title, String company, Date start, Date end, boolean isPresent, String description, Set<Skill> skills) {
+    public Experience(String title, String company, Date start, Date end, boolean isPresent, String description) {
         this.title = title;
         this.company = company;
         this.start = start;
         this.end = end;
         this.isPresent = isPresent;
         this.description = description;
-        this.skills = skills;
     }
 
     public Long getId() {
@@ -101,5 +98,34 @@ public class Experience {
 
     public void setSkills(Set<Skill> skills) {
         this.skills = skills;
+    }
+
+    @Override
+    public String toString() {
+        return "Experience{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", company='" + company + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", isPresent=" + isPresent +
+                ", description='" + description + '\'' +
+                ", skills=" + skills +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Experience that = (Experience) o;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }
