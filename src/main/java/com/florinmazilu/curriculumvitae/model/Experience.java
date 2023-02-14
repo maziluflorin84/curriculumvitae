@@ -16,8 +16,8 @@ public class Experience {
     
     private String title;
     private String company;
-    private Date start;
-    private Date end;
+    private Date startDate;
+    private Date endDate;
     private boolean isPresent;
     private String description;
     
@@ -27,11 +27,11 @@ public class Experience {
     public Experience() {
     }
 
-    public Experience(String title, String company, Date start, Date end, boolean isPresent, String description) {
+    public Experience(String title, String company, Date startDate, Date endDate, boolean isPresent, String description) {
         this.title = title;
         this.company = company;
-        this.start = start;
-        this.end = end;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.isPresent = isPresent;
         this.description = description;
     }
@@ -60,20 +60,20 @@ public class Experience {
         this.company = company;
     }
 
-    public Date getStart() {
-        return start;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStart(Date start) {
-        this.start = start;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEnd() {
-        return end;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd(Date end) {
-        this.end = end;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public boolean isPresent() {
@@ -106,8 +106,8 @@ public class Experience {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", company='" + company + '\'' +
-                ", start=" + start +
-                ", end=" + end +
+                ", start=" + startDate +
+                ", end=" + endDate +
                 ", isPresent=" + isPresent +
                 ", description='" + description + '\'' +
                 ", skills=" + skills +

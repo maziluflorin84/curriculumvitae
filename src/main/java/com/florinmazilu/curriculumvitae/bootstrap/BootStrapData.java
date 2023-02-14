@@ -57,5 +57,6 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of skills: " + skillRepository.count());
+        System.out.println("Number of experiences: " + experienceRepository.count());
     }
 }
