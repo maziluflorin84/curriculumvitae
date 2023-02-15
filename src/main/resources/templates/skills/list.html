@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of skills</title>
+</head>
+<body>
+<h1>Skills</h1>
+<table>
+    <tr>
+        <th>Skills</th>
+    </tr>
+    <tr th:each="skill : ${skills}">
+        <td th:text="${skill.id}"></td>
+        <td th:text="${skill.title}"></td>
+    </tr>
+</table>
+</body>
+</html>

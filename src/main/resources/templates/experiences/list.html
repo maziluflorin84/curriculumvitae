@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of experiences</title>
+</head>
+<body>
+<h1>Experiences</h1>
+<table>
+    <tr align="left">
+        <th>Id</th>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    <tr th:each="experience : ${experiences}">
+        <td th:text="${experience.id}"></td>
+        <td th:text="${experience.title}"></td>
+        <td th:text="${experience.company}"></td>
+        <td th:text="${experience.startDate}"></td>
+        <td th:text="${experience.endDate}"></td>
+    </tr>
+</table>
+</body>
+</html>
