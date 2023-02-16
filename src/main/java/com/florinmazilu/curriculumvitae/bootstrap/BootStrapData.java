@@ -37,9 +37,9 @@ public class BootStrapData implements CommandLineRunner {
         javaSkill.getExperiences().add(unicreditExp);
         jspSkill.getExperiences().add(unicreditExp);
 
-        experienceRepository.save(unicreditExp);
-        skillRepository.save(javaSkill);
-        skillRepository.save(jspSkill);
+        // experienceRepository.save(unicreditExp);
+        // skillRepository.save(javaSkill);
+        // skillRepository.save(jspSkill);
 
         Experience cognizantExp = new Experience("Java developer", "Cognizant Softvision",
                 new GregorianCalendar(2021, Calendar.OCTOBER, 20).getTime(),
@@ -51,9 +51,9 @@ public class BootStrapData implements CommandLineRunner {
         javaSkill.getExperiences().add(cognizantExp);
         jenkinsSkill.getExperiences().add(cognizantExp);
 
-        experienceRepository.save(cognizantExp);
-        skillRepository.save(javaSkill);
-        skillRepository.save(jenkinsSkill);
+        // experienceRepository.save(cognizantExp);
+        // skillRepository.save(javaSkill);
+        // skillRepository.save(jenkinsSkill);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of skills: " + skillRepository.count());
